@@ -1,8 +1,10 @@
-package com.example.coursework4chapter;
+package com.example.coursework4chapter.ui.view.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.coursework4chapter.R;
 
 public class MainActivity extends AppCompatActivity {
 
