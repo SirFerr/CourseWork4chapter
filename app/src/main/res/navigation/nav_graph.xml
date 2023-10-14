@@ -9,7 +9,7 @@
         android:id="@+id/loginFragment"
         android:name="com.example.coursework4chapter.ui.view.fragments.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
@@ -21,10 +21,10 @@
         android:id="@+id/mainFragment"
         android:name="com.example.coursework4chapter.ui.view.fragments.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
-            android:id="@+id/action_mainFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            android:id="@+id/action_mainFragment_to_addStudentFragment"
+            app:destination="@id/addStudentFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -32,15 +32,10 @@
         android:label="fragment_register"
         tools:layout="@layout/fragment_sign_up" />
     <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.coursework4chapter.ui.view.fragments.AddStudentFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_add_student" />
-    <fragment
         android:id="@+id/groupFragment"
         android:name="com.example.coursework4chapter.ui.view.fragments.GroupFragment"
         android:label="fragment_group"
-        tools:layout="@layout/fragment_group" >
+        tools:layout="@layout/fragment_group">
         <action
             android:id="@+id/action_groupFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
@@ -53,4 +48,9 @@
         android:name="com.example.coursework4chapter.ui.view.fragments.AddGroupFragment"
         android:label="fragment_add_group"
         tools:layout="@layout/fragment_add_group" />
+    <fragment
+        android:id="@+id/addStudentFragment"
+        android:name="com.example.coursework4chapter.ui.view.fragments.AddStudentFragment"
+        android:label="fragment_add_student"
+        tools:layout="@layout/fragment_add_student" />
 </navigation>

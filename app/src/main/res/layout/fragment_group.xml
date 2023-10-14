@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listGroup"
+        android:id="@+id/listGroupGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

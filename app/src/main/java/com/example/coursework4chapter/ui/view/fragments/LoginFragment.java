@@ -27,8 +27,11 @@ public class LoginFragment extends Fragment {
         Button login = view.findViewById(R.id.btnLoginLogin);
         Button signup = view.findViewById(R.id.btnSignUpLogin);
 
+        login.setOnClickListener(v->{
+            Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_groupFragment);
+        });
         signup.setOnClickListener(v->{
-            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registerFragment);
+            Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_registerFragment);
         });
 
     }

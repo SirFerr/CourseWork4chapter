@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ToggleButton
+    <Button
         android:id="@+id/btn1ItemMain"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:text="+"
-        android:textOff="+"
-        android:textOn="+"
+
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn2ItemMain"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textItemMain"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textItemMain"
@@ -23,21 +23,23 @@
         android:layout_height="40dp"
         android:gravity="center"
         android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn1ItemMain"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ToggleButton
+    <Button
         android:id="@+id/btn2ItemMain"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:text="Н"
-        android:textOff="Н"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textItemMain"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn1ItemMain"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
