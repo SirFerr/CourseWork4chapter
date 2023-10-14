@@ -30,6 +30,7 @@ public class LoginFragment extends Fragment {
         signup.setOnClickListener(v->{
             Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registerFragment);
         });
+
     }
 
 
