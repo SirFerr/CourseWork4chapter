@@ -11,21 +11,34 @@ import java.util.List;
 
 @Entity(tableName = "students")
 public class Student {
+    @Relation(parentColumn = "id", entityColumn = "studentID")
+    public List<Attendance> attendances;
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     int id;
-
     @ColumnInfo(name = "name")
     String name;
-
     @ColumnInfo(name = "group_id")
     String groupId;
-
-    @Relation(parentColumn = "id", entityColumn = "studentID")
-    public List<Attendance> attendances;
 
     public Student(String name, String groupId) {
         this.name = name;
         this.groupId = groupId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public List<Attendance> getAttendances() {
+        return attendances;
     }
 }
