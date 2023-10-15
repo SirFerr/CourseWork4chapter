@@ -12,7 +12,7 @@ public class Attendance {
     Long id;
 
     @ColumnInfo(name = "student_id")
-    int studentID;
+    Long studentID;
 
     @ColumnInfo(name = "date")
     String date;
@@ -20,17 +20,17 @@ public class Attendance {
     @ColumnInfo(name = "presence")
     Boolean wasPresent;
 
-    public Attendance(int studentID, String date) {
+    public Attendance(Long studentID, String date) {
         this.studentID = studentID;
         this.date = date;
         this.wasPresent = false;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public int getStudentID() {
+    public Long getStudentID() {
         return studentID;
     }
 
