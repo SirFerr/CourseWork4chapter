@@ -25,4 +25,20 @@ public class Attendance {
         this.date = date;
         this.wasPresent = false;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getStudentID() {
+        return studentID;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public Boolean getWasPresent() {
+        return wasPresent;
+    }
 }

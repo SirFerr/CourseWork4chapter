@@ -28,4 +28,20 @@ public class Student {
         this.name = name;
         this.groupId = groupId;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public List<Attendance> getAttendances() {
+        return attendances;
+    }
 }

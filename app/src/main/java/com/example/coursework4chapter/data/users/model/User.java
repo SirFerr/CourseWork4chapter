@@ -12,6 +12,8 @@ import java.util.List;
 
 @Entity(tableName = "users")
 public class User {
+    @Relation(parentColumn = "id", entityColumn = "user_id")
+    public LiveData<List<Group>> groups;
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     Long id;
@@ -22,14 +24,31 @@ public class User {
     @ColumnInfo(name = "name")
     String name;
 
-    @Relation(parentColumn = "id", entityColumn = "user_id")
-    public LiveData<List<Group>> groups;
-
 
 
     public User(String email, String password, String name) {
         this.email = email;
         this.password = password;
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public LiveData<List<Group>> getGroups() {
+        return groups;
     }
 }
