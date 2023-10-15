@@ -13,7 +13,7 @@ import java.util.List;
 public class Student {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    int id;
+    Long id;
 
     @ColumnInfo(name = "name")
     String name;

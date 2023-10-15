@@ -9,7 +9,7 @@ public class Attendance {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    int id;
+    Long id;
 
     @ColumnInfo(name = "student_id")
     int studentID;

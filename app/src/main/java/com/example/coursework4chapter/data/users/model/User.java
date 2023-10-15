@@ -14,7 +14,7 @@ import java.util.List;
 public class User {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    int id;
+    Long id;
     @ColumnInfo(name = "email")
     String email;
     @ColumnInfo(name = "password")
@@ -24,6 +24,7 @@ public class User {
 
     @Relation(parentColumn = "id", entityColumn = "user_id")
     public LiveData<List<Group>> groups;
+
 
 
     public User(String email, String password, String name) {
