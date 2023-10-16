@@ -11,6 +11,8 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coursework4chapter.R;
+import com.example.coursework4chapter.data.studentsAttendance.groups.Group;
+import com.example.coursework4chapter.ui.view.adapters.GroupAdapter;
 import com.example.coursework4chapter.ui.viewModel.StudentsAttendanceViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -31,7 +33,14 @@ public class GroupFragment extends Fragment {
         Bundle bundle = getArguments();
 
         studentsAttendanceViewModel.getGroupsByUserId(bundle.getInt("UserID")).observe(this, groups -> {
-//            groupList.setAdapter();
+            GroupAdapter.OnGroupClickListener onGroupClickListener = (state, position) -> {
+                Bundle bundle1 = new Bundle();
+                Group group = groups.get(position);
+                bundle1.putString("groupID", String.valueOf(group.getId()));
+                bundle1.putString("groupName", group.getName());
+                Navigation.findNavController(view).navigate(R.id.action_groupFragment_to_mainFragment, bundle1);
+            };
+            groupList.setAdapter(new GroupAdapter(getContext(), groups, onGroupClickListener));
         });
 
         buttonAddGroup.setOnClickListener(v ->

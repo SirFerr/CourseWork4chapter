@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity(tableName = "student")
 public class Student {
-    @Relation(parentColumn = "id", entityColumn = "studentID", entity = Attendance.class)
+    @Relation(parentColumn = "id", entityColumn = "student_id", entity = Attendance.class)
     public List<Attendance> attendances;
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
@@ -19,9 +19,9 @@ public class Student {
     @ColumnInfo(name = "name")
     String name;
     @ColumnInfo(name = "group_id")
-    String groupId;
+    int groupId;
 
-    public Student(String name, String groupId) {
+    public Student(String name, int groupId) {
         this.name = name;
         this.groupId = groupId;
     }
@@ -34,7 +34,7 @@ public class Student {
         return name;
     }
 
-    public String getGroupId() {
+    public int getGroupId() {
         return groupId;
     }
 

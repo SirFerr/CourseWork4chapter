@@ -6,11 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.example.coursework4chapter.R;
+import com.example.coursework4chapter.data.studentsAttendance.students.Student;
+import com.example.coursework4chapter.ui.viewModel.StudentsAttendanceViewModel;
 
 
 public class AddStudentFragment extends Fragment {
@@ -22,11 +26,16 @@ public class AddStudentFragment extends Fragment {
         super.onResume();
         EditText student = view.findViewById(R.id.editTextNameAddStudent);
         Button addBtn = view.findViewById(R.id.btnAddStudent);
-
+        StudentsAttendanceViewModel studentsAttendanceViewModel = new ViewModelProvider(this).get(StudentsAttendanceViewModel.class);
+        Bundle bundle = getArguments();
         addBtn.setOnClickListener(v -> {
             if (!student.getText().toString().equals("")) {
+
+                studentsAttendanceViewModel.insertStudent(new Student(student.getText().toString(), bundle.getInt("groupID")));
+                Toast.makeText(requireContext(), "Группа успешно добавленна", Toast.LENGTH_SHORT).show();
                 Navigation.findNavController(v).popBackStack();
-            }
+            } else
+                Toast.makeText(requireContext(), "Заполнены не все поля", Toast.LENGTH_SHORT).show();
         });
     }
 

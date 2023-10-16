@@ -33,21 +33,17 @@ public class LoginFragment extends Fragment {
         StudentsAttendanceViewModel studentsAttendanceViewModel = new ViewModelProvider(this).get(StudentsAttendanceViewModel.class);
 
         login.setOnClickListener(v -> {
-
-            studentsAttendanceViewModel.getAllUser().observe(this, users -> {
-                if (!email.getText().toString().equals("") && !password.getText().toString().equals("")) {
-                    User user = studentsAttendanceViewModel.getUserByEmail(email.getText().toString()).getValue();
-                    if (password.getText().toString().equals(user.getPassword())) {
-                        Bundle bundle = new Bundle();
-                        bundle.putInt("UserID", user.getId());
-                        Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_groupFragment, bundle);
-                    } else
-                        Toast.makeText(requireContext(), "Пользователя не существует", Toast.LENGTH_SHORT).show();
-
+            if (!email.getText().toString().equals("") && !password.getText().toString().equals("")) {
+                User user = studentsAttendanceViewModel.getUserByEmail(email.getText().toString()).getValue();
+                if (password.getText().toString().equals(user.getPassword())) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("UserID", user.getId());
+                    Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_groupFragment, bundle);
                 } else
-                    Toast.makeText(requireContext(), "Заполнены не все поля", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), "Пользователя не существует", Toast.LENGTH_SHORT).show();
 
-            });
+            } else
+                Toast.makeText(requireContext(), "Заполнены не все поля", Toast.LENGTH_SHORT).show();
         });
         signup.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_registerFragment);

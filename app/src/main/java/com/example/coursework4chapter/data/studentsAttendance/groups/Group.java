@@ -25,9 +25,8 @@ public class Group {
     @NonNull
     int userId;
 
-    public Group(String name, @NonNull int userId) {
+    public Group(String name) {
         this.name = name;
-        this.userId = userId;
     }
 
     public int getId() {

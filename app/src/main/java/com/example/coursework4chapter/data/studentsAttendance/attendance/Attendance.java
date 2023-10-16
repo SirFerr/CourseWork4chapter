@@ -11,7 +11,7 @@ public class Attendance {
     @ColumnInfo(name = "id")
     int id;
 
-    @ColumnInfo(name = "studentID")
+    @ColumnInfo(name = "student_id")
     int studentID;
 
     @ColumnInfo(name = "date")
