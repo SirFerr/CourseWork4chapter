@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coursework4chapter.R;
-import com.example.coursework4chapter.data.students.model.Student;
+import com.example.coursework4chapter.data.studentsAttendance.students.Student;
 
 import java.util.List;
 

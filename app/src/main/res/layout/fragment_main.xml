@@ -9,12 +9,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listStudentsMain"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textGroupMain" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDateMain" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddStudent"
@@ -34,7 +34,31 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextDateMain"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="Дата"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/btnSearchDateMain"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="23dp" />
+
+    <Button
+        android:id="@+id/btnSearchDateMain"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/editTextDateMain"
+        tools:layout_editor_absoluteY="23dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.coursework4chapter.data.groups.dao;
+package com.example.coursework4chapter.data.studentsAttendance.groups;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -7,8 +7,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.coursework4chapter.data.groups.model.Group;
-import com.example.coursework4chapter.data.students.model.Student;
+import com.example.coursework4chapter.data.studentsAttendance.students.Student;
 
 import java.util.List;
 import java.util.Map;
@@ -17,25 +16,26 @@ import java.util.Map;
 public interface GroupDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAllGroup(Group... groups);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertGroup(Group group);
 
     @Delete
     void deleteGroup(Group group);
 
-    @Query("DELETE FROM groups WHERE id = :id")
+    @Query("DELETE FROM [group] WHERE id = :id")
     void deleteGroupById(int id);
 
-    @Query("DELETE FROM groups WHERE name = :name")
+    @Query("DELETE FROM [group] WHERE name = :name")
     void deleteGroupByName(String name);
 
-    @Query("SELECT * FROM groups")
+    @Query("SELECT * FROM [group]")
     LiveData<List<Group>> getAllGroup();
 
 
-    @Query("SELECT * FROM groups WHERE id = :id")
+    @Query("SELECT * FROM [group] WHERE id = :id")
     LiveData<Group> getGroupById(int id);
 
-    @Query("SELECT * FROM groups JOIN students ON students.group_id = groups.id")
+    @Query("SELECT * FROM [group] JOIN student ON student.group_id = [group].id")
     LiveData<Map<Group, List<Student>>> loadGroupAndStudents();
 }

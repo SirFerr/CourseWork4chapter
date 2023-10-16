@@ -1,18 +1,18 @@
-package com.example.coursework4chapter.data.attendences.model;
+package com.example.coursework4chapter.data.studentsAttendance.attendance;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "attendances")
+@Entity(tableName = "attendance")
 public class Attendance {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    Long id;
+    int id;
 
-    @ColumnInfo(name = "student_id")
-    Long studentID;
+    @ColumnInfo(name = "studentID")
+    int studentID;
 
     @ColumnInfo(name = "date")
     String date;
@@ -20,17 +20,17 @@ public class Attendance {
     @ColumnInfo(name = "presence")
     Boolean wasPresent;
 
-    public Attendance(Long studentID, String date) {
+    public Attendance(int studentID, String date) {
         this.studentID = studentID;
         this.date = date;
         this.wasPresent = false;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public Long getStudentID() {
+    public int getStudentID() {
         return studentID;
     }
 

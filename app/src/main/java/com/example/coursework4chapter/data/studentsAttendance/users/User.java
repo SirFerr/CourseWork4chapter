@@ -1,4 +1,4 @@
-package com.example.coursework4chapter.data.users.model;
+package com.example.coursework4chapter.data.studentsAttendance.users;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.ColumnInfo;
@@ -6,17 +6,17 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.Relation;
 
-import com.example.coursework4chapter.data.groups.model.Group;
+import com.example.coursework4chapter.data.studentsAttendance.groups.Group;
 
 import java.util.List;
 
-@Entity(tableName = "users")
+@Entity(tableName = "user")
 public class User {
-    @Relation(parentColumn = "id", entityColumn = "user_id")
-    public LiveData<List<Group>> groups;
+    @Relation(parentColumn = "id", entityColumn = "user_id", entity = Group.class)
+    public LiveData<List<Group>> groups = null;
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    Long id;
+    int id;
     @ColumnInfo(name = "email")
     String email;
     @ColumnInfo(name = "password")
@@ -25,14 +25,13 @@ public class User {
     String name;
 
 
-
     public User(String email, String password, String name) {
         this.email = email;
         this.password = password;
         this.name = name;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 

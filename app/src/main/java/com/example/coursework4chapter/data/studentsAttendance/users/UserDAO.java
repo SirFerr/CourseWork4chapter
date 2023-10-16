@@ -1,4 +1,4 @@
-package com.example.coursework4chapter.data.users.dao;
+package com.example.coursework4chapter.data.studentsAttendance.users;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -7,8 +7,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.coursework4chapter.data.groups.model.Group;
-import com.example.coursework4chapter.data.users.model.User;
+import com.example.coursework4chapter.data.studentsAttendance.groups.Group;
 
 import java.util.List;
 import java.util.Map;
@@ -17,28 +16,30 @@ import java.util.Map;
 public interface UserDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAllUsers(User... users);
+
     @Delete
     void deleteUser(User user);
 
 
-    @Query("SELECT * FROM groups WHERE user_id = :userId")
+    @Query("SELECT * FROM [group] WHERE user_id = :userId")
     LiveData<List<Group>> getGroupsByUserId(int userId);
 
-    @Query("SELECT * FROM users")
+    @Query("SELECT * FROM user")
     LiveData<List<User>> getAllUsers();
 
-    @Query("DELETE FROM users WHERE id = :id")
+    @Query("DELETE FROM user WHERE id = :id")
     void deleteUserById(int id);
 
-    @Query("SELECT * FROM users WHERE id = :id")
+    @Query("SELECT * FROM user WHERE id = :id")
     LiveData<User> getUserById(int id);
-    @Query("SELECT * FROM users WHERE email = :email")
+
+    @Query("SELECT * FROM user WHERE email = :email")
     LiveData<User> getUserByEmail(String email);
 
-    @Query("SELECT * FROM users JOIN groups ON groups.user_id = users.id")
+    @Query("SELECT * FROM user JOIN [group] ON [group].user_id = user.id")
     LiveData<Map<User, List<Group>>> loadUserAndGroups();
 
-    @Query("INSERT INTO users (email, password, name) VALUES (:email, :password, :name)")
+    @Query("INSERT INTO user (email, password, name) VALUES (:email, :password, :name)")
     void insertUser(String email, String password, String name);
 
 

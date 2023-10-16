@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.coursework4chapter.R;
-import com.example.coursework4chapter.data.groups.model.Group;
+import com.example.coursework4chapter.data.studentsAttendance.groups.Group;
 
 import java.util.List;
 

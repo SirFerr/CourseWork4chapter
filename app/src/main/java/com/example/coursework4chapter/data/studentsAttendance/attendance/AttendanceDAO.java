@@ -1,4 +1,4 @@
-package com.example.coursework4chapter.data.attendences.dao;
+package com.example.coursework4chapter.data.studentsAttendance.attendance;
 
 
 import androidx.lifecycle.LiveData;
@@ -6,9 +6,6 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-
-
-import com.example.coursework4chapter.data.attendences.model.Attendance;
 
 import java.util.List;
 
@@ -20,9 +17,9 @@ public interface AttendanceDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAttendance(Attendance attendance);
 
-    @Query("SELECT * FROM attendances")
+    @Query("SELECT * FROM attendance")
     LiveData<List<Attendance>> getAllAttendance();
 
-    @Query("UPDATE attendances SET presence = :wasPresent WHERE student_id = :studentId")
+    @Query("UPDATE attendance SET presence = :wasPresent WHERE student_id = :studentId")
     void updateAttendance(boolean wasPresent, int studentId);
 }

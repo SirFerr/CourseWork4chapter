@@ -1,25 +1,24 @@
-package com.example.coursework4chapter.data.repository;
+package com.example.coursework4chapter.data.studentsAttendance;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.coursework4chapter.data.attendences.dao.AttendanceDAO;
-import com.example.coursework4chapter.data.attendences.model.Attendance;
-import com.example.coursework4chapter.data.db.AppDatabase;
-import com.example.coursework4chapter.data.groups.dao.GroupDAO;
-import com.example.coursework4chapter.data.groups.model.Group;
-import com.example.coursework4chapter.data.students.dao.StudentDAO;
-import com.example.coursework4chapter.data.students.model.Student;
-import com.example.coursework4chapter.data.users.dao.UserDAO;
-import com.example.coursework4chapter.data.users.model.User;
+import com.example.coursework4chapter.data.studentsAttendance.attendance.Attendance;
+import com.example.coursework4chapter.data.studentsAttendance.attendance.AttendanceDAO;
+import com.example.coursework4chapter.data.studentsAttendance.groups.Group;
+import com.example.coursework4chapter.data.studentsAttendance.groups.GroupDAO;
+import com.example.coursework4chapter.data.studentsAttendance.students.Student;
+import com.example.coursework4chapter.data.studentsAttendance.students.StudentDAO;
+import com.example.coursework4chapter.data.studentsAttendance.users.User;
+import com.example.coursework4chapter.data.studentsAttendance.users.UserDAO;
 
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
 
-public class DBRepository {
+public class Repository {
     private final AttendanceDAO attendanceDAO;
     private final GroupDAO groupDAO;
 
@@ -33,7 +32,7 @@ public class DBRepository {
 
     private final LiveData<List<Attendance>> allAttendances;
 
-    public DBRepository(Application application) {
+    public Repository(Application application) {
         AppDatabase db = AppDatabase.getDataBase(application);
 
         attendanceDAO = db.getAttendanceDAO();
@@ -178,19 +177,19 @@ public class DBRepository {
                 .execute(() -> userDAO.deleteUserById(id));
     }
 
-    public LiveData<User> getUserById(int id){
+    public LiveData<User> getUserById(int id) {
         return executeAsync(() -> userDAO.getUserById(id));
     }
 
-    public LiveData<User> getUserByEmail(String email){
+    public LiveData<User> getUserByEmail(String email) {
         return executeAsync(() -> userDAO.getUserByEmail(email));
     }
 
-    public LiveData<Map<User, List<Group>>> loadUserAndGroups(){
+    public LiveData<Map<User, List<Group>>> loadUserAndGroups() {
         return executeAsync(() -> userDAO.loadUserAndGroups());
     }
 
-    void insertUser(String email, String password, String name){
+    public void insertUser(String email, String password, String name) {
         AppDatabase.databaseWriteExecutor
                 .execute(() -> userDAO.insertUser(email, password, name));
     }

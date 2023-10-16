@@ -1,4 +1,4 @@
-package com.example.coursework4chapter.data.groups.model;
+package com.example.coursework4chapter.data.studentsAttendance.groups;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -6,31 +6,31 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.Relation;
 
-import com.example.coursework4chapter.data.students.model.Student;
+import com.example.coursework4chapter.data.studentsAttendance.students.Student;
 
 import java.util.List;
 
-@Entity(tableName = "groups")
+@Entity(tableName = "group")
 public class Group {
     @Relation(parentColumn = "id", entityColumn = "group_id")
     public List<Student> students;
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    Long id;
+    int id;
 
     @ColumnInfo(name = "name")
     String name;
 
     @ColumnInfo(name = "user_id")
     @NonNull
-    Long userId;
+    int userId;
 
-    public Group(String name, @NonNull Long userId) {
+    public Group(String name, @NonNull int userId) {
         this.name = name;
         this.userId = userId;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
@@ -38,7 +38,7 @@ public class Group {
         return name;
     }
 
-    public Long getUserId() {
+    public int getUserId() {
         return userId;
     }
 
